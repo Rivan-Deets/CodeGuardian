@@ -219,3 +219,40 @@ Git uses a nonzero exit code from the precommit hook to block a commit.
 - Each changed file has an `OWNERS` file
 - All required owners have approved
 - A configured readability approver has approved
+
+### Warnings
+
+- Possible duplicate function or class names
+- Required comments that have exceeded the 24-hour response target
+
+Duplicate names and overdue comments currently produce warnings rather than
+blocking commits because they require human judgment.
+
+## Limitations
+
+This is a local prototype rather than a complete hosted review platform.
+
+- Approvals are stored in a local JSON file.
+- Usernames are not authenticated.
+- The tool does not verify GitHub permissions.
+- Comments are not attached to individual source-code lines.
+- Duplicate detection compares symbol names, not complete implementations.
+- The tool does not send notifications.
+- Review data is not automatically shared with other developers.
+
+## Possible Future Improvements
+
+A production version could:
+
+1. Integrate with GitHub pull requests.
+2. Authenticate reviewers and verify permissions.
+3. Store review data in a shared database.
+4. Attach comments to exact source-code lines.
+5. Send notifications to required reviewers.
+6. Add a web dashboard for review status.
+7. Protect `OWNERS` files from unauthorized changes.
+8. Add broader tests for supported operating systems and languages.
+
+## License
+
+This project was created as a software engineering tool demonstration.
